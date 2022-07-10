@@ -28,7 +28,7 @@ h2{
 #row{
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 50px;
+	margin-bottom: 250px;
 }
 
 #filters{
@@ -63,8 +63,7 @@ footer{
 /* 	position: relative; */
 	height: 250px;
 	width: 100%;
-	position: relative;
-	bottom: 0;
+	position: absolute;
 	
 }
 
