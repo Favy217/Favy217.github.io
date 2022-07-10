@@ -60,7 +60,7 @@ h2{
 
 footer{
 	background-image: url(homepage_bg.jpg);
-	position: relative;
+/* 	position: relative; */
 	height: 250px;
 	width: 100%;
 	position: absolute;
