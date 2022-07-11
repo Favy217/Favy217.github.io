@@ -1,5 +1,19 @@
 body{
 	background-color: skyblue;
+	/* fit height based on screen size */
+	height: 100%;
+	width: 100%;
+}
+
+img{
+	/* center image */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	/* fit image to screen */
+	width: 100%;
+	height: 250px;
+
 }
 
 h1{
@@ -60,12 +74,11 @@ h2{
 
 footer{
 	background-image: url(homepage_bg.jpg);
-/* 	position: relative; */
-	height: 250px;
+	/* position: relative; */
 	width: 100%;
+	height: 250px;
 	position: absolute;
-	
-}
+	}
 
 #formShow{
 	width: 80%;
