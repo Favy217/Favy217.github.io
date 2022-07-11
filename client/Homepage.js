@@ -183,7 +183,7 @@ data.forEach(function ({id, companyName, role, jobDescription, salary, jobType, 
 				 category.setAttribute("type", "text");
 				 category.setAttribute("name", "category");
 				 category.setAttribute("placeholder", "Category");
-				 var Category_list = ["Analyst", "Designer", "Developer", "Product Manager", "Salesperson"];
+				 var Category_list = ["Analyst", "Designer", "Developer", "Manager", "Salesperson"];
 				 // loop through the category array and create option element
 				 Category_list.forEach(element => {
 					var option = document.createElement('option');
@@ -346,6 +346,12 @@ data.forEach(function ({id, companyName, role, jobDescription, salary, jobType, 
 					var contract = document.getElementById("Contract");
 					var internship = document.getElementById("Internship");
 					var volunteer = document.getElementById("Volunteer");
+
+					var analyst = document.getElementById("Analyst");
+					var designer = document.getElementById("Designer");
+					var developer = document.getElementById("Developer");
+					var manager = document.getElementById("Manager");
+					var SalesPerson = document.getElementById("SalesPerson");
 					
 					//manipulate html radio button
 					function radio(e) {
@@ -354,31 +360,60 @@ data.forEach(function ({id, companyName, role, jobDescription, salary, jobType, 
 						//check if radio button is checked
 					
 						if (fulltime.checked) {
-							fetch('http://localhost:5000/fulltime')
+							fetch('http://localhost:5000/filterJob/full time')
 							.then(response => response.json())
 							.then(data => loadJobData(data['data']));
 					}
 					else if (parttime.checked){
-						fetch('http://localhost:5000/parttime')
+						fetch('http://localhost:5000/filterJob/part time')
 						.then(response => response.json())
 						.then(data  => loadJobData(data['data']));
 					}
 					else if (contract.checked){
-						fetch('http://localhost:5000/contract')
+						fetch('http://localhost:5000/filterJob/contract')
 						.then(response => response.json())
 						.then(data => loadJobData(data['data']));
 					}
 					else if(internship.checked){
-						fetch('http://localhost:5000/internship')
+						fetch('http://localhost:5000/filterJob/internship')
 						.then(response => response.json())
 						.then(data => loadJobData(data['data']));
 					}
 					else if(volunteer.checked){
-						fetch('http://localhost:5000/volunteer')
+						fetch('http://localhost:5000/filterJob/volunteer')
+						.then(response => response.json())
+						.then(data => loadJobData(data['data']));
+					}
+
+					//filter checkbox category
+					if (analyst.checked) {
+						fetch('http://localhost:5000/filterCategory/analyst')
+						.then(response => response.json())
+						.then(data => loadJobData(data['data']));
+
+					}
+					else if (designer.checked){
+						fetch('http://localhost:5000/filterCategory/designer')
+						.then(response => response.json())
+						.then(data => loadJobData(data['data']));
+					}
+					else if (developer.checked){
+						fetch('http://localhost:5000/filterCategory/developer')
+						.then(response => response.json())
+						.then(data => loadJobData(data['data']));
+					}
+					else if (manager.checked){
+						fetch('http://localhost:5000/filterCategory/manager')
+						.then(response => response.json())
+						.then(data => loadJobData(data['data']));
+					}
+					else if (SalesPerson.checked){
+						fetch('http://localhost:5000/filterCategory/SalesPerson')
 						.then(response => response.json())
 						.then(data => loadJobData(data['data']));
 					}
 				}
+
 
 				//validate external http links
 				function validateURL(textval) {
